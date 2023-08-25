@@ -26,6 +26,14 @@ class Tools
 	{
 		return JNI.createStaticMethod('org/haxe/extension/Tools', 'isRooted', '()Z')();
 	}
+	
+	public static function vibrate(duration:Int, period:Int = 0):Void
+	{
+		if (Permissions.getGrantedPermissions().contains(Permissions.VIBRATE))
+			JNI.createStaticMethod('org/haxe/extension/Tools', 'vibrate', '(II)V')(duration, period);
+		else
+			Log.warn("VIBRATE permission isn't granted, we can't vibrate the device.");
+	}
 
 	/**
 	 * Sets Activity's Title by the `title`.
