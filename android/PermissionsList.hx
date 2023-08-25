@@ -1,4 +1,3 @@
-@@ -1,220 +0,0 @@
 package android;
 
 #if (!android && !native && macro)
